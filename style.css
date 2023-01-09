@@ -1,0 +1,34 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.countdown-container {
+    display: flex;
+    font-size: 50px;
+    color: #333333;
+}
+
+.countdown-item {
+    margin: 0 10px;
+}
+
+input[type="date"] {
+    font-size: 20px;
+    margin: 20px;
+}
+
+button {
+    font-size: 20px;
+    margin: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #606060;
+    color: #f2f2f2;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333333;
+}
