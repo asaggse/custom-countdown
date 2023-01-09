@@ -4,6 +4,11 @@ body {
     background-color: #f2f2f2;
 }
 
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
 .countdown-container {
     display: flex;
     font-size: 50px;
@@ -13,6 +18,11 @@ body {
 .countdown-item {
     margin: 0 10px;
 }
+
+.countdown-label {
+    font-size: 20px;
+    margin-top: 10px;
+  }          
 
 input[type="date"] {
     font-size: 20px;
