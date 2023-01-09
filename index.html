@@ -7,101 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Countdown</title>
     <!-- Style -->
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            text-align: center;
-            background-color: #f2f2f2;
-        }
-
-        .countdown-container {
-            display: flex;
-            font-size: 50px;
-            color: #333333;
-        }
-
-        .countdown-item {
-            margin: 0 10px;
-        }
-
-        input[type="date"] {
-            font-size: 20px;
-            margin: 20px;
-        }
-
-        button {
-            font-size: 20px;
-            margin: 20px;
-            padding: 10px 20px;
-            border: none;
-            background-color: #606060;
-            color: #f2f2f2;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #333333;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <!-- Font -->
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 </head>
 
 <body>
-    <div class="countdown-container">
-        <div id="days" class="countdown-item">00</div>
-        <div class="countdown-item">:</div>
-        <div id="hours" class="countdown-item">00</div>
-        <div class="countdown-item">:</div>
-        <div id="minutes" class="countdown-item">00</div>
-        <div class="countdown-item">:</div>
-        <div id="seconds" class="countdown-item">00</div>
-    </div>
-    <input type="date" id="target-date">
-    <button id="set-date-button">Set Date</button>
-
+    <div class="container">
+        <div class="countdown-container">
+          <div class="countdown-item">
+            <div id="days">00</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-item">:</div>
+          <div class="countdown-item">
+            <div id="hours">00</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-item">:</div>
+          <div class="countdown-item">
+            <div id="minutes">00</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-item">:</div>
+          <div class="countdown-item">
+            <div id="seconds">00</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+        <input type="date" id="target-date">
+        <button id="set-date-button">Set Date</button>
+      </div>
 
     <!-- Script -->
-    <script>
-        const daysElement = document.getElementById("days");
-        const hoursElement = document.getElementById("hours");
-        const minutesElement = document.getElementById("minutes");
-        const secondsElement = document.getElementById("seconds");
-        const targetDateInput = document.getElementById("target-date");
-        const setDateButton = document.getElementById("set-date-button");
-
-        let targetDate;
-
-        function updateCountdown() {
-            const currentDate = new Date();
-            const timeLeft = targetDate - currentDate;
-
-            if (timeLeft < 0) {
-                // Countdown is complete
-                clearInterval(intervalId);
-                return;
-            }
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor(
-                (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-            );
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            daysElement.innerHTML = days;
-            hoursElement.innerHTML = hours;
-            minutesElement.innerHTML = minutes;
-            secondsElement.innerHTML = seconds;
-        }
-
-        setDateButton.addEventListener("click", function () {
-            targetDate = new Date(targetDateInput.value);
-            updateCountdown();
-            intervalId = setInterval(updateCountdown, 1000);
-        });
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
