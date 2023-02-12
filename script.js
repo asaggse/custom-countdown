@@ -4,6 +4,7 @@ const minutesElement = document.getElementById("minutes");
 const secondsElement = document.getElementById("seconds");
 const targetDateInput = document.getElementById("target-date");
 const setDateButton = document.getElementById("set-date-button");
+const resetDateButton = document.getElementById("reset-date-button");
 
 let targetDate;
 
@@ -34,4 +35,13 @@ setDateButton.addEventListener("click", function () {
     targetDate = new Date(targetDateInput.value);
     updateCountdown();
     intervalId = setInterval(updateCountdown, 1000);
+});
+
+resetDateButton.addEventListener("click", function () {
+    clearInterval(intervalId);
+    targetDate = null;
+    daysElement.innerHTML = "00";
+    hoursElement.innerHTML = "00";
+    minutesElement.innerHTML = "00";
+    secondsElement.innerHTML = "00";
 });
